@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'main.dart';
+import 'auth.dart';
 
 class LoginPage extends StatelessWidget {
-  void googleAuth() {}
+  final void Function() fun2;
+  const LoginPage({required this.fun2});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +53,9 @@ class LoginPage extends StatelessWidget {
                 side: MaterialStateProperty.all<BorderSide?>(const BorderSide(
                     color: Color.fromARGB(254, 108, 100, 254), width: 3.5)),
               ),
-              onPressed: googleAuth,
+              onPressed: () {
+                AuthMethods(fun2: fun2).signInWithGoogle(context);
+              },
               icon: Image.asset(
                 'assets/google_icon.png',
                 scale: 14,
@@ -90,7 +96,7 @@ class LoginPage extends StatelessWidget {
                 side: MaterialStateProperty.all<BorderSide?>(const BorderSide(
                     color: Color.fromARGB(254, 108, 100, 254), width: 3.5)),
               ),
-              onPressed: googleAuth,
+              onPressed: () {},
               icon: Image.asset(
                 'assets/apple-icon.png',
                 scale: 13,

@@ -1,9 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:studybot/page1.dart';
-import 'home.dart';
 import 'login_page.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -27,16 +28,17 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return (MaterialApp(
-      home: (page4or1 == 'log')
-          ? Page1(
-              fun2: fun2,
-            )
-          : const Home(),
-    )
-        // home: LoginPage(),
-        // home: Page1(
-        //   fun2: fun2,
-        // ),
-        );
+      // home: (page4or1 == 'log')
+      //     ? Page1(
+      //         fun2: fun2,
+      //       )
+      //     : const Home(),
+      // )
+      home: LoginPage(
+        fun2: fun2,
+      ),
+      // home: Page1(
+      //   fun2: fun2,
+    ));
   }
 }

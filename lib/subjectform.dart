@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'home.dart';
 
 class Subjectform extends StatefulWidget {
   final void Function() submit;
-  const Subjectform({super.key, required this.submit});
+  Subjectform({super.key, required this.submit});
+
+  final storage = new FlutterSecureStorage();
+
+  String? value;
+  void read() async {
+    value = await storage.read(key: "mail");
+    print("mail is here");
+    print("mail is here");
+    print("mail is here");
+    print("mail is here");
+    print("mail is here");
+    print(value);
+  }
 
   @override
   State<StatefulWidget> createState() {
@@ -152,7 +167,10 @@ class Subjectformstate extends State<Subjectform> {
                     side:
                         MaterialStateProperty.all(const BorderSide(width: .3)),
                   ),
-                  onPressed: (valuse == null) ? null : () => {widget.submit()},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (ctx) => const Home()));
+                  },
                   child: const Text(
                     'Continue',
                     style: TextStyle(

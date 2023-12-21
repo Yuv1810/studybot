@@ -3,6 +3,7 @@ import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
 import 'package:studybot/Pages/MychatApp.dart';
 import 'package:studybot/Pages/SearchPage.dart';
+import 'package:studybot/Pages/Profile.dart';
 import 'package:studybot/dummy2.dart';
 
 class Home extends StatefulWidget {
@@ -60,6 +61,12 @@ class Homestate extends State<Home> {
 
             Navigator.push(context,
                 MaterialPageRoute(builder: (ctx) => const MyChatApp()));
+          }
+
+          if (index == 4) {
+            await Future.delayed(const Duration(milliseconds: 350));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (ctx) => const Profile()));
           }
         },
         items: [
