@@ -34,6 +34,8 @@ dependencies:
   firebase_auth: ^4.15.3
   firebase_core: ^2.24.2
   cloud_firestore: ^4.13.6
+  flutter_secure_storage: ^9.0.0
+  carousel_slider: ^4.2.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -51,7 +53,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.1
-  flutter_secure_storage: ^9.0.0
+  
   
 
 # For information on the generic Dart part of this file, see the

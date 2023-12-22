@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:studybot/Pages/MychatApp.dart';
 import 'package:studybot/Pages/SearchPage.dart';
 import 'package:studybot/Pages/Profile.dart';
-import 'package:studybot/dummy2.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -89,10 +89,6 @@ class Homestate extends State<Home> {
                 const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           ),
           CurvedNavigationBarItem(
-            // child: const Icon(
-            //   Icons.ac_unit_rounded,
-            //   size: 28,
-            // ),
             child: Image.asset('assets/Engine.png', scale: 1),
             label: labels[2],
             labelStyle:
@@ -118,6 +114,32 @@ class Homestate extends State<Home> {
           ),
         ],
       ),
+      body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        //for lesson page
+        const Row(),
+        //evalution and test
+        const Row(),
+        //carousel here
+
+        CarouselSlider(
+          options: CarouselOptions(height: 300.0),
+          items: [1, 2, 3, 4, 5].map((i) {
+            return Builder(
+              builder: (BuildContext context) {
+                return Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                    decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 93, 95, 187)),
+                    child: Text(
+                      'text $i',
+                      style: const TextStyle(fontSize: 16.0),
+                    ));
+              },
+            );
+          }).toList(),
+        )
+      ]),
     ));
   }
 }

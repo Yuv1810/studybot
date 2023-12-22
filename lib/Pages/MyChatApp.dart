@@ -57,12 +57,14 @@ class ChatState extends State<MyChatApp> {
                   ),
                 ),
                 Container(
+                    margin: const EdgeInsets.fromLTRB(13, 10, 13, 20),
+                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: Colors.black,
                         width: 1.0,
                       ),
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(15),
                     ),
                     child: Row(
                       children: [

@@ -9,6 +9,7 @@ class Subjectform extends StatefulWidget {
   final storage = new FlutterSecureStorage();
 
   String? value;
+
   void read() async {
     value = await storage.read(key: "mail");
     print("mail is here");
@@ -26,11 +27,11 @@ class Subjectform extends StatefulWidget {
 }
 
 class Subjectformstate extends State<Subjectform> {
-  String? valuse;
+  String? value;
 
   void fun(String? val) {
     setState(() {
-      valuse = val;
+      value = val;
     });
   }
 
@@ -63,7 +64,7 @@ class Subjectformstate extends State<Subjectform> {
               icon: const Icon(Icons.keyboard_arrow_down),
               underline: const SizedBox(),
               isExpanded: true,
-              value: valuse,
+              value: value,
               items: const [
                 DropdownMenuItem(
                   value: 'Jee',
@@ -168,8 +169,9 @@ class Subjectformstate extends State<Subjectform> {
                         MaterialStateProperty.all(const BorderSide(width: .3)),
                   ),
                   onPressed: () {
+                    widget.read();
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (ctx) => const Home()));
+                        MaterialPageRoute(builder: (context) => const Home()));
                   },
                   child: const Text(
                     'Continue',
