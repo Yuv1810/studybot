@@ -1,11 +1,10 @@
-import 'package:studybot/dummy2.dart';
 import 'page1.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'database.dart';
-import 'Nameform.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthMethods {
@@ -47,17 +46,8 @@ class AuthMethods {
         "imgUrl": userDetails.photoURL,
         "id": userDetails.uid,
       };
-      print("/n");
-      print("/n");
-      print("/n");
-      print("/n");
-      print(userInfoMap);
-      print("/n");
-      print("/n");
-      print("/n");
 
       await storage.write(key: "mail", value: userInfoMap["email"]);
-      print('yes');
 
       DatabaseMethods().addUser(userDetails.uid, userInfoMap).then((value) {
         Navigator.push(context,

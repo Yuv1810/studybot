@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'main.dart';
 import 'auth.dart';
 
 class LoginPage extends StatelessWidget {

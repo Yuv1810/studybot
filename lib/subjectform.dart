@@ -12,12 +12,6 @@ class Subjectform extends StatefulWidget {
 
   void read() async {
     value = await storage.read(key: "mail");
-    print("mail is here");
-    print("mail is here");
-    print("mail is here");
-    print("mail is here");
-    print("mail is here");
-    print(value);
   }
 
   @override
