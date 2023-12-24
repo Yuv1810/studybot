@@ -36,6 +36,7 @@ dependencies:
   cloud_firestore: ^4.13.6
   flutter_secure_storage: ^9.0.0
   carousel_slider: ^4.2.1
+  smooth_page_indicator: ^1.1.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -77,6 +78,13 @@ flutter:
     - assets/Engine.png
     - assets/Engine2.png
     - assets/Engine3.png
+    - assets/carousel.avif
+    - assets/y1.png
+    - assets/y2.png
+    - assets/y3.png
+    - assets/y4.png
+    - assets/resume-lesson.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
