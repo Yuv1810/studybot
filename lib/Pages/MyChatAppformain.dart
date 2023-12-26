@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyChatApp extends StatefulWidget {
-  final String chapter;
-  final String subject;
-  const MyChatApp({super.key, required this.chapter, required this.subject});
+class MyChatAppformain extends StatefulWidget {
+  const MyChatAppformain({super.key});
 
   @override
   State<StatefulWidget> createState() {
@@ -11,37 +9,13 @@ class MyChatApp extends StatefulWidget {
   }
 }
 
-class ChatState extends State<MyChatApp> {
+class ChatState extends State<MyChatAppformain> {
   var textcontroller = TextEditingController();
   String input = '';
-
-  @override
-  void initState() {
-    print(widget.chapter);
-    super.initState();
-  }
 
   final _key = GlobalKey<FormState>();
   List<String> user = [];
   List<String> bot = [];
-
-  List<String> topics = [
-    "Frame of reference",
-    "Motion in a straight line",
-    "Position-time graph and speed",
-    "Elementary concepts of differentiation and integration for describing motion",
-    "Scalar and vector quantities",
-    "Uniform and non-uniform motion",
-    "Relative velocity",
-    "Frame of reference",
-    "Motion in a straight line",
-    "Position-time graph and speed",
-    "Elementary concepts of differentiation and integration for describing motion",
-    "Scalar and vector quantities",
-    "Uniform and non-uniform motion",
-    "Relative velocity",
-    "Relative velocity",
-  ];
 
   void fun(value) {
     setState(() {
@@ -54,34 +28,9 @@ class ChatState extends State<MyChatApp> {
 
   @override
   Widget build(BuildContext context) {
-    var x = topics.map((data) {
-      return (Center(
-        child: ListTile(
-          contentPadding: const EdgeInsets.fromLTRB(25, 4, 10, 4),
-          tileColor: const Color.fromARGB(255, 255, 255, 255),
-          title: Text(
-            data,
-            style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
-          ),
-        ),
-      ));
-    }).toList();
     return (Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-        ),
-        drawer: Drawer(
-          backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-          child: SingleChildScrollView(
-            child: Center(
-              child: Column(children: [
-                const SizedBox(
-                  height: 60,
-                ),
-                ...x
-              ]),
-            ),
-          ),
         ),
         body: Stack(
           children: [

@@ -25,7 +25,8 @@ class HomeList extends StatelessWidget {
         width: MediaQuery.of(context).size.width / 3.5,
         decoration: BoxDecoration(
           color: const Color.fromARGB(155, 153, 150, 245),
-          border: Border.all(width: 1.0, color: Color.fromARGB(255, 5, 0, 0)),
+          border:
+              Border.all(width: 1.0, color: const Color.fromARGB(255, 5, 0, 0)),
           borderRadius: const BorderRadius.all(Radius.circular(15)),
         ),
         child: Stack(children: [

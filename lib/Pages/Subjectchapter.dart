@@ -1,39 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:studybot/Pages/Subjectchapter.dart';
+import 'package:studybot/Pages/MyChatApp.dart';
+import 'package:studybot/Pages/MyChatAppformain.dart';
 
-class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key}) : super(key: key);
+class SubjectchapterPage extends StatefulWidget {
+  final String subject;
+
+  const SubjectchapterPage({Key? key, required this.subject}) : super(key: key);
 
   @override
-  _SearchPageState createState() => _SearchPageState();
+  _SubjectchapterPageState createState() => _SubjectchapterPageState();
 }
 
-class _SearchPageState extends State<SearchPage> {
+class _SubjectchapterPageState extends State<SubjectchapterPage> {
   TextEditingController _searchController = TextEditingController();
-  final List<String> _allSubjects = [
-    'Mathematics',
-    'Physics',
-    'Chemistry',
-    'Biology',
-    'Computer Science',
-    'History',
-    'Geography',
-    'Literature',
-    'Art',
-    // Add more subjects as needed
+  final List<String> _allchapters = [
+    'Introduction to Biology',
+    'Cell Structure and Function',
+    'Genetics',
+    'Evolution',
+    'Ecology',
+    'Microbiology',
+    'Anatomy and Physiology',
+    'Botany',
+    'Zoology',
+    'Biochemistry',
+    'Biotechnology',
+    'Immunology',
+    'Environmental Science',
+    'Neurobiology',
+    'Developmental Biology',
+    'Ecological Conservation',
+    'Biogeography',
+    'Paleontology',
+    'Human Biology',
+    // Add more chapters as needed
   ];
-  List<String> _displayedSubjects = [];
+
+  List<String> _displayedchapters = [];
 
   @override
   void initState() {
     super.initState();
-    _displayedSubjects = List.from(_allSubjects);
+    _displayedchapters = List.from(_allchapters);
   }
 
   void _performSearch(String query) {
     // Filter subjects based on the query
-    _displayedSubjects = _allSubjects
-        .where((subject) => subject.toLowerCase().contains(query.toLowerCase()))
+    _displayedchapters = _allchapters
+        .where(
+            (chapters) => chapters.toLowerCase().contains(query.toLowerCase()))
         .toList();
 
     // Update the UI to reflect the search results
@@ -74,7 +91,7 @@ class _SearchPageState extends State<SearchPage> {
                         _performSearch(value);
                       },
                       decoration: const InputDecoration(
-                        hintText: 'Search for subjects',
+                        hintText: 'Search for Chapters',
                         border: InputBorder.none,
                       ),
                     ),
@@ -84,7 +101,7 @@ class _SearchPageState extends State<SearchPage> {
             ),
             const SizedBox(height: 16),
             Expanded(
-              child: _buildSubjectButtons(context),
+              child: _buildchaptersButtons(context),
             ),
           ],
         ),
@@ -92,8 +109,8 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
-  Widget _buildSubjectButtons(context) {
-    if (_displayedSubjects.isEmpty) {
+  Widget _buildchaptersButtons(context) {
+    if (_displayedchapters.isEmpty) {
       return const Center(
         child: Text('No subjects available.'),
       );
@@ -101,9 +118,9 @@ class _SearchPageState extends State<SearchPage> {
 
     return SingleChildScrollView(
       child: Column(
-        children: _displayedSubjects
+        children: _displayedchapters
             .map(
-              (subject) => ElevatedButton(
+              (chapter) => ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor: const MaterialStatePropertyAll<Color>(
                     Color.fromARGB(255, 183, 175, 254),
@@ -116,13 +133,15 @@ class _SearchPageState extends State<SearchPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>
-                          SubjectchapterPage(subject: subject),
+                      builder: (context) => MyChatApp(
+                        chapter: chapter,
+                        subject: widget.subject,
+                      ),
                     ),
                   );
                 },
                 child: Text(
-                  subject,
+                  chapter,
                   style: const TextStyle(
                     color: Color.fromARGB(255, 0, 0, 0),
                     fontSize: 20,
@@ -136,21 +155,3 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 }
-
-// class SubjectDetailsPage extends StatelessWidget {
-//   final String subject;
-
-//   const SubjectDetailsPage({Key? key, required this.subject}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('Subject Details'),
-//       ),
-//       body: Center(
-//         child: Text('Details for $subject'),
-//       ),
-//     );
-//   }
-// }
