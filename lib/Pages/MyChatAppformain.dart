@@ -28,81 +28,86 @@ class ChatState extends State<MyChatAppformain> {
 
   @override
   Widget build(BuildContext context) {
-    return (Scaffold(
-        appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-        ),
-        body: Stack(
-          children: [
-            Center(
-              child: Image.asset(
-                'assets/Engine3.png',
+    return (GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+          ),
+          body: Stack(
+            children: [
+              Center(
+                child: Image.asset(
+                  'assets/Engine3.png',
+                ),
               ),
-            ),
-            Column(
-              children: [
-                const Expanded(
-                  child: SingleChildScrollView(
-                    padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-                    child: Column(
-                      children: [
-                        Text(
-                          " textContent",
-                          style: TextStyle(fontSize: 20),
-                        ),
+              Column(
+                children: [
+                  const Expanded(
+                    child: SingleChildScrollView(
+                      keyboardDismissBehavior:
+                          ScrollViewKeyboardDismissBehavior.onDrag,
+                      padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+                      child: Column(
+                        children: [
+                          Text(
+                            " textContent",
+                            style: TextStyle(fontSize: 20),
+                          ),
 
-                        // input list to display
-                      ],
+                          // input list to display
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Container(
-                    margin: const EdgeInsets.fromLTRB(13, 10, 13, 20),
-                    padding: const EdgeInsets.fromLTRB(10, 5, 0, 0),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 1.0,
+                  Container(
+                      margin: const EdgeInsets.fromLTRB(13, 10, 13, 20),
+                      padding: const EdgeInsets.fromLTRB(10, 5, 0, 0),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                            child: SizedBox(
-                          child: TextField(
-                            scrollPadding:
-                                const EdgeInsets.fromLTRB(0, 0, 100, 0),
-                            scrollPhysics: const BouncingScrollPhysics(),
-                            style: const TextStyle(fontSize: 20),
-                            cursorHeight: 24,
-                            minLines: 1,
-                            maxLines: 5,
-                            key: _key,
-                            controller: textcontroller,
-                            onChanged: (value) {
-                              input = value;
+                      child: Row(
+                        children: [
+                          Expanded(
+                              child: SizedBox(
+                            child: TextField(
+                              scrollPadding:
+                                  const EdgeInsets.fromLTRB(0, 0, 100, 0),
+                              scrollPhysics: const BouncingScrollPhysics(),
+                              style: const TextStyle(fontSize: 20),
+                              cursorHeight: 24,
+                              minLines: 1,
+                              maxLines: 5,
+                              key: _key,
+                              controller: textcontroller,
+                              onChanged: (value) {
+                                input = value;
+                              },
+                              decoration: const InputDecoration(
+                                border: InputBorder.none,
+                              ),
+                            ),
+                          )),
+                          IconButton(
+                            onPressed: () {
+                              fun(textcontroller.text);
+                              textcontroller.clear();
                             },
-                            decoration: const InputDecoration(
-                              border: InputBorder.none,
+                            icon: const Icon(
+                              Icons.send,
+                              size: 35,
                             ),
                           ),
-                        )),
-                        IconButton(
-                          onPressed: () {
-                            fun(textcontroller.text);
-                            textcontroller.clear();
-                          },
-                          icon: const Icon(
-                            Icons.send,
-                            size: 35,
-                          ),
-                        ),
-                      ],
-                    )),
-              ],
-            ),
-          ],
-        )));
+                        ],
+                      )),
+                ],
+              ),
+            ],
+          )),
+    ));
   }
 }

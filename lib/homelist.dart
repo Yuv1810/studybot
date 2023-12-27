@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:studybot/page1.dart';
+import 'Pages/Test/page1.dart';
 
 class HomeList extends StatelessWidget {
   String image;
@@ -11,12 +13,17 @@ class HomeList extends StatelessWidget {
       required this.image,
       required this.index});
 
+  List<Widget> routes = [SubjectChoice()];
+
   @override
   Widget build(BuildContext context) {
     return (GestureDetector(
       onTap: () {
         //make the list of push and use index to push it
         //use the index
+
+        Navigator.push(
+            context, MaterialPageRoute(builder: (ctx) => routes[index]));
       },
       child: Container(
         margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
