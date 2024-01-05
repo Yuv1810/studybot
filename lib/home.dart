@@ -36,7 +36,9 @@ class Homestate extends State<Home> {
   List<String?> labels = ['Home', "", "", "", ""];
   var iconpadding = 16.0;
   var currindex = 0;
+  int selectedpageindex = 0;
   int cnt = 0;
+  List<Widget> pages = [];
   List<Slidebar> textforevaluation = [
     Slidebar(data: 'Take test', image: 'assets/y3.png'),
     Slidebar(data: 'Question', image: 'assets/y1.png'),
@@ -51,56 +53,99 @@ class Homestate extends State<Home> {
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
   ];
 
-  void submit() {
-    setState(() {
-      // handle click in this of continue button
-    });
-  }
-
-  void fun() {}
+  // @override
+  // void initState() {
+  //   pages = [
+  //     Page2(),
+  //     Page1(),
+  //     Page3(val: ontap),
+  //     Page4(),
+  //   ];
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
+    // void fun(int index) {
+    //   setState(() {
+    //     selectedpageindex = index;
+    //     if (index != 0) {
+    //       Navigator.push(
+    //         context,
+    //         MaterialPageRoute(builder: (context) => const SearchPage()),
+    //       ).then((_) => setState(
+    //           () => selectedpageindex = 0)); // Reset to home when coming back
+    //     }
+    //   });
+    // }
+
+    void fun(int index) async {
+      await Future.delayed(const Duration(milliseconds: 50));
+      setState(() {
+        selectedpageindex = index;
+        iconpadding = 16.0;
+        for (int i = 0; i < 5; i++) {
+          labels[i] = "";
+        }
+        labels[index] = labelsdata[index];
+        if (index == 2) {
+          iconpadding = 1;
+        }
+      });
+      await Future.delayed(const Duration(milliseconds: 550));
+      setState(() {
+        selectedpageindex = index;
+        if (index == 1) {
+          Future.delayed(const Duration(milliseconds: 350));
+          Navigator.push(context,
+                  MaterialPageRoute(builder: (ctx) => const SearchPage()))
+              .then((_) => setState(() {
+                    selectedpageindex = 0;
+                    for (int i = 0; i < 5; i++) {
+                      labels[i] = "";
+                    }
+                    labels[0] = labelsdata[0];
+                  }));
+        }
+
+        if (index == 2) {
+          Navigator.push(context,
+                  MaterialPageRoute(builder: (ctx) => const MyChatAppformain()))
+              .then((_) => setState(() {
+                    selectedpageindex = 0;
+                    for (int i = 0; i < 5; i++) {
+                      labels[i] = "";
+                    }
+                    labels[0] = labelsdata[0];
+                    iconpadding = 16;
+                  }));
+        }
+
+        if (index == 4) {
+          Navigator.push(
+                  context, MaterialPageRoute(builder: (ctx) => const Profile()))
+              .then((_) => setState(() {
+                    selectedpageindex = 0;
+                    for (int i = 0; i < 5; i++) {
+                      labels[i] = "";
+                    }
+                    labels[0] = labelsdata[0];
+                    iconpadding = 16;
+                  }));
+        }
+      });
+    }
+
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
-        index: 0,
+        index: selectedpageindex,
+        onTap: fun,
         iconPadding: iconpadding,
         buttonBackgroundColor: const Color.fromARGB(255, 183, 175, 254),
         animationCurve: Curves.easeOut,
         color: const Color.fromARGB(254, 108, 100, 254),
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         animationDuration: const Duration(milliseconds: 300),
-        onTap: (index) async {
-          await Future.delayed(const Duration(milliseconds: 150));
-          setState(() {
-            iconpadding = 16.0;
-            for (int i = 0; i < 5; i++) {
-              labels[i] = "";
-            }
-            labels[index] = labelsdata[index];
-          });
-
-          if (index == 1) {
-            await Future.delayed(const Duration(milliseconds: 350));
-            Navigator.push(context,
-                MaterialPageRoute(builder: (ctx) => const SearchPage()));
-          }
-
-          if (index == 2) {
-            setState(() {
-              iconpadding = 1;
-            });
-            await Future.delayed(const Duration(milliseconds: 350));
-            Navigator.push(context,
-                MaterialPageRoute(builder: (ctx) => const MyChatAppformain()));
-          }
-
-          if (index == 4) {
-            await Future.delayed(const Duration(milliseconds: 350));
-            Navigator.push(
-                context, MaterialPageRoute(builder: (ctx) => const Profile()));
-          }
-        },
         items: [
           CurvedNavigationBarItem(
             child: const Icon(

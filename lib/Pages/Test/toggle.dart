@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'result.dart';
 import 'questions.dart';
+import 'form.dart';
+import 'package:riverpod/riverpod.dart';
+
+final question = StateProvider<int>((ref) => 0);
+final time = StateProvider<int>((ref) => 0);
 
 class TogglePage extends StatefulWidget {
   const TogglePage({super.key});
@@ -16,7 +21,17 @@ class _TogglePageState extends State<TogglePage> {
     });
   }
 
-  var currPage = 'test';
+  // int questions = 0;
+  // int time = 0;
+
+  void changetoquestion() {
+    setState(() {
+      currPage = 'test';
+    });
+  }
+
+  // changing it to formpage
+  var currPage = 'form';
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +39,12 @@ class _TogglePageState extends State<TogglePage> {
       return (TestQuestions(
         changePage: changepage,
       ));
-    } else {
+    } else if (currPage == 'result') {
       return (const ResultPage());
+    } else {
+      return (QForm(
+        fun: changetoquestion,
+      ));
     }
   }
 }

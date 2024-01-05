@@ -1,16 +1,19 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:studybot/subjectform.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'login_page.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'home.dart';
 import 'package:flutter/services.dart';
+import 'package:riverpod/riverpod.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  runApp(const MyApp());
+  runApp(const ProviderScope(
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -39,13 +42,14 @@ class MyAppState extends State<MyApp> {
       page4or1 = 'home';
     }
 
-    super.initState();
-    Subjectform(
-      submit: fun2,
+    LoginPage(
+      fun2: fun2,
     );
+    super.initState();
   }
 
   void fun2() {
+    print("Called fun2 from main");
     setState(() {
       page4or1 = 'Home';
     });

@@ -29,6 +29,10 @@ class Subjectformstate extends State<Subjectform> {
     });
   }
 
+  // void initstate() {
+  //   widget.submit();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return (Column(
@@ -164,6 +168,10 @@ class Subjectformstate extends State<Subjectform> {
                   ),
                   onPressed: () {
                     widget.read();
+                    // setState(() {
+                    //   widget.submit();
+                    // });
+
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const Home()));
                   },

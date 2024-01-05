@@ -29,13 +29,21 @@ class Page1State extends State<Page1> {
   // }
 
   @override
+  void initState() {
+    Nameform(fun: fun, fun2: widget.fun2);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     Widget form = Nameform(
       fun: fun,
       fun2: widget.fun2,
     );
     if (page == 'Subjectform') {
-      form = Subjectform(submit: widget.fun2);
+      setState(() {
+        form = Subjectform(submit: widget.fun2);
+      });
     } else {
       form = Nameform(
         fun: fun,

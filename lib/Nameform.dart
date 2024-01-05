@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:studybot/subjectform.dart';
 
 class Nameform extends StatefulWidget {
   final void Function() fun;
@@ -20,6 +21,14 @@ class Nameformstate extends State<Nameform> {
   void dispose() {
     textcontroller.dispose();
     super.dispose();
+  }
+
+  @override
+  void initState() {
+    Subjectform(
+      submit: widget.fun2,
+    );
+    super.initState();
   }
 
   final _key = GlobalKey<FormState>();

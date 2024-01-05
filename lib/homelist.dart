@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:studybot/page1.dart';
 import 'Pages/Test/page1.dart';
+import 'Pages/Questions/QSubjchoice.dart';
 
 class HomeList extends StatelessWidget {
   String image;
@@ -13,7 +14,7 @@ class HomeList extends StatelessWidget {
       required this.image,
       required this.index});
 
-  List<Widget> routes = [SubjectChoice()];
+  List<Widget> routes = [SubjectChoice(), QSubjectChoice()];
 
   @override
   Widget build(BuildContext context) {

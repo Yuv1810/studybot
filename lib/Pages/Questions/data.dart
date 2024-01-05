@@ -50,37 +50,37 @@ List<Map<String, dynamic>> oldsQuestions = [
       'A type of cellular organelle.',
     ],
   },
-  // {
-  //   'topic': 'Enzymes',
-  //   'question': 'Explain the role of enzymes in biological systems.',
-  //   'options': [
-  //     'Biological catalysts that speed up chemical reactions',
-  //     'Structural proteins in cell membranes.',
-  //     'Energy-storing molecules in cells.',
-  //     'Long-chain nucleic acids.',
-  //   ],
-  // },
-  // {
-  //   'topic': 'Prokaryotic and Eukaryotic Cells',
-  //   'question':
-  //       'What is the difference between prokaryotic and eukaryotic cells?',
-  //   'options': [
-  //     'Prokaryotic cells lack a true nucleus, and eukaryotic cells have a true nucleus',
-  //     'Prokaryotic cells have a true nucleus, and eukaryotic cells lack a true nucleus.',
-  //     'Prokaryotic cells and eukaryotic cells both lack a true nucleus.',
-  //     'Prokaryotic cells and eukaryotic cells both have a true nucleus.',
-  //   ],
-  // },
-  // {
-  //   'topic': 'Biodiversity',
-  //   'question': 'What is the importance of biodiversity?',
-  //   'options': [
-  //     'Maintaining ecological balance, providing ecosystem services, and contributing to adaptability and resilience',
-  //     'Supporting only a few species in an ecosystem.',
-  //     'Reducing ecological balance and adaptability.',
-  //     'Contributing to the extinction of species.',
-  //   ],
-  // },
+  {
+    'topic': 'Enzymes',
+    'question': 'Explain the role of enzymes in biological systems.',
+    'options': [
+      'Biological catalysts that speed up chemical reactions',
+      'Structural proteins in cell membranes.',
+      'Energy-storing molecules in cells.',
+      'Long-chain nucleic acids.',
+    ],
+  },
+  {
+    'topic': 'Prokaryotic and Eukaryotic Cells',
+    'question':
+        'What is the difference between prokaryotic and eukaryotic cells?',
+    'options': [
+      'Prokaryotic cells lack a true nucleus, and eukaryotic cells have a true nucleus',
+      'Prokaryotic cells have a true nucleus, and eukaryotic cells lack a true nucleus.',
+      'Prokaryotic cells and eukaryotic cells both lack a true nucleus.',
+      'Prokaryotic cells and eukaryotic cells both have a true nucleus.',
+    ],
+  },
+  {
+    'topic': 'Biodiversity',
+    'question': 'What is the importance of biodiversity?',
+    'options': [
+      'Maintaining ecological balance, providing ecosystem services, and contributing to adaptability and resilience',
+      'Supporting only a few species in an ecosystem.',
+      'Reducing ecological balance and adaptability.',
+      'Contributing to the extinction of species.',
+    ],
+  },
   // {
   //   'topic': 'Cellular Respiration',
   //   'question': 'Describe the process of cellular respiration.',

@@ -3,7 +3,7 @@ import 'auth.dart';
 
 class LoginPage extends StatelessWidget {
   final void Function() fun2;
-  const LoginPage({required this.fun2});
+  const LoginPage({super.key, required this.fun2});
 
   @override
   Widget build(BuildContext context) {
