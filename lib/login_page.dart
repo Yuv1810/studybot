@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'auth.dart';
+import 'page1.dart';
 
 class LoginPage extends StatelessWidget {
   final void Function() fun2;
@@ -52,7 +53,9 @@ class LoginPage extends StatelessWidget {
                     color: Color.fromARGB(254, 108, 100, 254), width: 3.5)),
               ),
               onPressed: () {
-                AuthMethods(fun2: fun2).signInWithGoogle(context);
+                // AuthMethods(fun2: fun2).signInWithGoogle(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Page1(fun2: fun2)));
               },
               icon: Image.asset(
                 'assets/google_icon.png',
